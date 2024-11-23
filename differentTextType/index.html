@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Effect</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: blueviolet;
+            
+        }
+        h1{
+            margin-top:1.5rem;
+            color:#fff;
+
+        }
+        h1::after{
+            border-right: 2px solid white;
+            content:'';
+            margin-left:10px;
+            position:relative;
+            animation: blinking 0.6s infinite;
+        }
+        @keyframes blinking {
+            0%{
+                opacity: 0;
+            }
+        100%{
+            opacity: 1;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Learn With Ismail</h1>
+    <script>
+
+        var TextArray = ['Ismail Hussain','Taher Ahmed ','Web'];
+        var countArray = 0;
+        var charIndex = 0;
+        function typing(){
+            var crntArray = TextArray[countArray];
+            var letter =crntArray.slice(0,charIndex++);
+            console.log(letter);
+            document.querySelector("h1").innerHTML=letter;
+
+            if(letter.length == crntArray.length  ){
+
+                countArray++;
+                charIndex = 0
+            }
+            if(countArray == TextArray.length ){
+                countArray = 0;
+
+
+            }
+        }
+  setInterval(typing,100);
+    </script>
+</body>
+</html>

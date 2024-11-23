@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Effect</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: blueviolet;
+            
+        }
+        h1{
+            margin-top:1.5rem;
+            color:#fff;
+
+        }
+        h1::after{
+            border-right: 2px solid white;
+            content:'';
+            margin-left:10px;
+            position:relative;
+            animation: blinking 0.6s infinite;
+        }
+        @keyframes blinking {
+            0%{
+                opacity: 0;
+            }
+        100%{
+            opacity: 1;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Learn With Ismail</h1>
+         <script>
+
+            let languages =['JAVA','JAVASCRIPT','CSS','PYTHON'];
+            let languagesCount =0;
+            let indexCount =0;
+
+            setInterval(typing,100);
+            
+            function typing(){
+                let currentArray = languages[languagesCount];
+                let indxing = currentArray.slice(0,indexCount++);
+                document.querySelector("h1").innerHTML = indxing;
+                
+                if(indxing.length === currentArray.length){
+                    languagesCount++;
+                    indexCount =0;
+                }
+                if(languagesCount === languages.length){
+
+                    languagesCount =0;
+                 
+
+
+                }
+            }
+
+
+
+         </script>
+    </body>
+    </html>
